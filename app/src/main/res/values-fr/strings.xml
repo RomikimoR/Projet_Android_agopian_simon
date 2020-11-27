@@ -9,5 +9,6 @@
     <string name="name_hint">Nom</string>
     <string name="save_button">Sauver</string>
     <string name="photo_button">prendre photo</string>
+    <string name="tab_rocket">Fusée</string>
 
 </resources>

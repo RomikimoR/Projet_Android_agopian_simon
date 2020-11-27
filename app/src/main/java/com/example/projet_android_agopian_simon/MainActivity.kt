@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.projet_android_agopian_simon.fragment.HomeFragment
 import com.example.projet_android_agopian_simon.fragment.ProfileFragment
+import com.example.projet_android_agopian_simon.fragment.RocketFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         val fragment_home  = HomeFragment()
         val fragment_profile  = ProfileFragment()
+        val fragment_rocket  = RocketFragment()
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
         val buttonPhoto = findViewById<Button>(R.id.button_Photo)
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.tab_home->showFragment(R.id.container, fragment_home)
                 R.id.tab_profile->showFragment(R.id.container, fragment_profile)
+                R.id.tab_rocket->showFragment(R.id.container, fragment_rocket)
 
             }
             true

@@ -7,4 +7,8 @@
         android:id="@+id/tab_profile"
         android:icon="@drawable/profile"
         android:title="@string/tab_profile" />
+    <item
+        android:id="@+id/tab_rocket"
+        android:icon="@drawable/profile"
+        android:title="@string/tab_rocket" />
 </menu>
