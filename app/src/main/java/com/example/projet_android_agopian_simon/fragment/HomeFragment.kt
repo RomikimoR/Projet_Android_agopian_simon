@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.projet_android_agopian_simon.Next5lauchApi
 import com.example.projet_android_agopian_simon.R
 
 class HomeFragment: Fragment() {
@@ -25,7 +27,15 @@ class HomeFragment: Fragment() {
         if(name != null && surname !=  null) {
             txt.setText("Hello " + name + " " + surname)
         }
+        val buttonApi = v.findViewById<Button>(R.id.button_Api)
+        buttonApi.setOnClickListener(View.OnClickListener { c: View? -> onClickApi() })
 
         return v
     }
+    private fun onClickApi() {
+        val res =  Next5lauchApi.run();
+    }
+
+
+
 }

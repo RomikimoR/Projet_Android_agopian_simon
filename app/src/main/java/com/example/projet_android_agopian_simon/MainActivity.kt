@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         buttonPhoto.setOnClickListener(View.OnClickListener { c: View? -> onClickPhoto() })
 
 
+
+
         showFragment(R.id.container, fragment_home)
         navView.setOnNavigationItemSelectedListener {
             when(it.itemId){
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
 
     fun AppCompatActivity.showFragment(id: Int, frg: Fragment) {
         supportFragmentManager
