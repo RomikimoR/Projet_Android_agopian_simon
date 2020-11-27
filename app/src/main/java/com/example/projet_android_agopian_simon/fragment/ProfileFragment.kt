@@ -1,15 +1,18 @@
 package com.example.projet_android_agopian_simon.fragment
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.SharedPreferences.Editor
+import android.os.Build
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.Fragment
 import com.example.projet_android_agopian_simon.R
 
@@ -26,11 +29,25 @@ class ProfileFragment : Fragment() {
         var name: EditText = inf.findViewById(R.id.name)
         var surname: EditText = inf.findViewById(R.id.surname)
         var save: Button = inf.findViewById(R.id.save_profile)
+        var notif: Button = inf.findViewById(R.id.send_notif)
 
         val preferences =
             this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor: Editor = preferences.edit()
 
+        notif.setOnClickListener {
+            createNotificationChannel()
+            var notificationBuilder =
+                NotificationCompat.Builder(requireContext(), "1")
+                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setContentTitle("Notif")
+                    .setContentText("notif content")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            with(NotificationManagerCompat.from(requireContext())) {
+                // notificationId is a unique int for each notification that you must define
+                notify(1, notificationBuilder.build())
+            }
+        }
         save.setOnClickListener({
             println(name.text.toString())
             println(surname.text.toString())
@@ -42,5 +59,21 @@ class ProfileFragment : Fragment() {
             name.setText(null)
         })
         return inf
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val descriptionText = getString(R.string.channel_description)
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("1", "my_channel", importance).apply {
+                description = descriptionText
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+                getActivity()?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 }

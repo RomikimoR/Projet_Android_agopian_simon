@@ -9,5 +9,8 @@
     <string name="name_hint">Nom</string>
     <string name="save_button">Sauver</string>
     <string name="photo_button">prendre photo</string>
+    <string name="send_notif">envoyer une notification</string>
+    <string name="channel_description">Description du channel</string>
+    <string name="hello">Bonjour</string>
 
 </resources>
