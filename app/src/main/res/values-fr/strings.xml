@@ -5,5 +5,6 @@
     <string name="tab_profile">Profil</string>
     <string name="home_fragment_title">Principale</string>
     <string name="profile_fragment_title">Profil</string>
+    <string name="photo_button">prendre photo</string>
 
 </resources>
