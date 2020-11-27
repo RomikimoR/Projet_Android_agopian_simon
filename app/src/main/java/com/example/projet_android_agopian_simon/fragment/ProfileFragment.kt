@@ -29,35 +29,31 @@ class ProfileFragment : Fragment() {
         var name: EditText = inf.findViewById(R.id.name)
         var surname: EditText = inf.findViewById(R.id.surname)
         var save: Button = inf.findViewById(R.id.save_profile)
-        var notif: Button = inf.findViewById(R.id.send_notif)
 
         val preferences =
             this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
         val editor: Editor = preferences.edit()
 
-        notif.setOnClickListener {
-            createNotificationChannel()
-            var notificationBuilder =
-                NotificationCompat.Builder(requireContext(), "1")
-                    .setSmallIcon(R.drawable.ic_launcher_background)
-                    .setContentTitle("Notif")
-                    .setContentText("notif content")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            with(NotificationManagerCompat.from(requireContext())) {
-                // notificationId is a unique int for each notification that you must define
-                notify(1, notificationBuilder.build())
-            }
-        }
-        save.setOnClickListener({
+        save.setOnClickListener{
             println(name.text.toString())
             println(surname.text.toString())
             editor.putString("name", name.text.toString())
             editor.putString("surname", surname.text.toString())
             editor.apply()
-
+            createNotificationChannel()
+            var notificationBuilder =
+                NotificationCompat.Builder(requireContext(), "1")
+                    .setSmallIcon(R.drawable.ic_launcher_background)
+                    .setContentTitle("Notif")
+                    .setContentText("Use just set your user name and surname")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            with(NotificationManagerCompat.from(requireContext())) {
+                // notificationId is a unique int for each notification that you must define
+                notify(1, notificationBuilder.build())
+            }
             surname.setText(null)
             name.setText(null)
-        })
+        }
         return inf
     }
 

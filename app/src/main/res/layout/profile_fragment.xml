@@ -37,12 +37,4 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/surname"/>
-    <Button
-        android:id="@+id/send_notif"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/send_notif"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/save_profile"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
