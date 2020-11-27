@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Projet_android_agopian_simon</string>
+    <string name="main_text">Welcome to your favorite app</string>
+    <string name="tab_home">Home</string>
+    <string name="tab_profile">Profile</string>
+    <string name="home_fragment_title">Principal</string>
+    <string name="profile_fragment_title">Profile</string>
+</resources>
