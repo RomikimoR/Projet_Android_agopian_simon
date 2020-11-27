@@ -5,9 +5,9 @@
     <string name="tab_profile">Profil</string>
     <string name="home_fragment_title">Principale</string>
     <string name="profile_fragment_title">Profil</string>
-    <string name="test">Bonjour</string>
     <string name="surname_hint">Prenom</string>
     <string name="name_hint">Nom</string>
     <string name="save_button">Sauver</string>
+    <string name="photo_button">prendre photo</string>
 
 </resources>
