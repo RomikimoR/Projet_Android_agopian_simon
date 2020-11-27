@@ -7,14 +7,16 @@ import android.util.Log
 import com.beust.klaxon.Klaxon
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import org.json.JSONException
 import java.io.IOException
-
-
+import org.json.JSONObject
+import java.nio.charset.Charset
 
 
 object Next5lauchApi {
     private const val TAG = "Next5lauch"
     private val client = OkHttpClient()
+    var Lauchs: ArrayList<Launch> = ArrayList()
 
     fun run() {
         val request = Request.Builder()
@@ -34,17 +36,27 @@ object Next5lauchApi {
                         println("$name: $value")
                     }
 
-                    println(response.body!!.string())
+                    try {
+                        val obj = JSONObject(response.body!!.string())
+                        val launchArray = obj.getJSONArray("launches")
+                        for (i in 0 until launchArray.length()) {
+                            val LaunchDetail = launchArray.getJSONObject(i)
+                            Lauchs.add(Launch(LaunchDetail.getString("name"),LaunchDetail.getString("net") ) )
+                        }
+                    }
+                    catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                    println(Lauchs)
 
-                    val result = Klaxon()
-                        .parse<Launch>(response.body.toString())
 
+                     val customAdapter = CustomAdapter(Lauchs)
 
-                    //val asc = Array(5) {response.body  -> (resp).toString() }
+                }
 
 
                 }
-            }
+
         })
     }
 }
