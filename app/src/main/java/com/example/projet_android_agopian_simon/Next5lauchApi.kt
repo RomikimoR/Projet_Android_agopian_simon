@@ -1,10 +1,15 @@
 package com.example.projet_android_agopian_simon
 
 
+import android.os.Parcel
+import android.os.Parcelable
 import android.util.Log
+import com.beust.klaxon.Klaxon
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import java.io.IOException
+
+
 
 
 object Next5lauchApi {
@@ -30,10 +35,19 @@ object Next5lauchApi {
                     }
 
                     println(response.body!!.string())
+
+                    val result = Klaxon()
+                        .parse<Launch>(response.body.toString())
+
+
+                    //val asc = Array(5) {response.body  -> (resp).toString() }
+
+
                 }
             }
         })
     }
-
-
 }
+
+class Launch(val name: String, val date: String)
+

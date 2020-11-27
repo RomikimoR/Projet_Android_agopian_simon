@@ -1,5 +1,6 @@
 package com.example.projet_android_agopian_simon
 
+import android.Manifest
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.graphics.Bitmap
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
     fun dispatchTakePictureIntent() {
+
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
             startActivityForResult(takePictureIntent,  REQUEST_IMAGE_CAPTURE)
