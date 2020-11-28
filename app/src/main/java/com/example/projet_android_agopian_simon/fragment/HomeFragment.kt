@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.example.projet_android_agopian_simon.Next5lauchApi
 import com.example.projet_android_agopian_simon.R
 
 class HomeFragment: Fragment() {
@@ -18,6 +17,7 @@ class HomeFragment: Fragment() {
             savedInstanceState: Bundle?
             ): View {
         val v = inflater.inflate(R.layout.home_fragment, container, false)
+        val v1 = inflater.inflate(R.layout.rocket_fragment, container, false)
         val txt: TextView = v.findViewById(R.id.home_fragment)
         val preferences =
             this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
@@ -27,14 +27,10 @@ class HomeFragment: Fragment() {
         if(name != null && surname !=  null) {
             txt.setText("Hello " + name + " " + surname)
         }
-        val buttonApi = v.findViewById<Button>(R.id.button_Api)
-        buttonApi.setOnClickListener(View.OnClickListener { c: View? -> onClickApi() })
 
         return v
     }
-    private fun onClickApi() {
-        val res =  Next5lauchApi.run();
-    }
+
 
 
 

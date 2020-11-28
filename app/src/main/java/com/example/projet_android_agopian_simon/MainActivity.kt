@@ -50,7 +50,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.tab_home->showFragment(R.id.container, fragment_home)
                 R.id.tab_profile->showFragment(R.id.container, fragment_profile)
                 R.id.tab_rocket->showFragment(R.id.container, fragment_rocket)
-
             }
             true
         }
@@ -75,6 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     fun onClickPhoto() {
         dispatchTakePictureIntent()
     }
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
             //ImageView imageView = findViewById(R.id.imageView2);
             CapturePhotoUtils.insertImage(this.contentResolver, imageBitmap, "title", "uberIMG")
-            val text = "Image saved!"
+            val text = "Image saved on files !"
             val duration = Toast.LENGTH_SHORT
 
             val toast = Toast.makeText(applicationContext, text, duration)

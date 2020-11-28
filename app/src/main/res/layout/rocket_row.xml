@@ -4,8 +4,10 @@
     android:layout_width="match_parent"
     android:layout_margin="5dp"
     android:layout_height="wrap_content">
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
         android:orientation="vertical"
         android:padding="10dp">
         <!--items for a single row of RecyclerView-->
@@ -13,13 +15,12 @@
             android:id="@+id/rocketName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            />
+            android:textSize="15sp" />
+
         <TextView
             android:id="@+id/rocketDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            />
+            android:textSize="10sp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
