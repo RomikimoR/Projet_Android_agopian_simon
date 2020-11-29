@@ -12,5 +12,5 @@
     <string name="send_notif">Send notification</string>
     <string name="channel_description">Channel\'s description</string>
     <string name="hello">Hello</string>
-
+    <string name="tab_rocket">Rocket</string>
 </resources>

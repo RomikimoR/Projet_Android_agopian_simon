@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.projet_android_agopian_simon.fragment.HomeFragment
 import com.example.projet_android_agopian_simon.fragment.ProfileFragment
+import com.example.projet_android_agopian_simon.fragment.RocketFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -38,20 +39,21 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_DENIED)
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), cameraRequest)
+        val fragment_rocket  = RocketFragment()
         val buttonPhoto = findViewById<Button>(R.id.button_Photo)
         buttonPhoto.setOnClickListener(View.OnClickListener { c: View? -> onClickPhoto() })
-
 
         showFragment(R.id.container, fragment_home)
         navView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.tab_home->showFragment(R.id.container, fragment_home)
                 R.id.tab_profile->showFragment(R.id.container, fragment_profile)
-
+                R.id.tab_rocket->showFragment(R.id.container, fragment_rocket)
             }
             true
         }
     }
+
 
     fun AppCompatActivity.showFragment(id: Int, frg: Fragment) {
         supportFragmentManager
@@ -60,6 +62,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
     fun dispatchTakePictureIntent() {
+
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         try {
             startActivityForResult(takePictureIntent,  REQUEST_IMAGE_CAPTURE)
@@ -68,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
 
     fun onClickPhoto() {
@@ -82,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
             //ImageView imageView = findViewById(R.id.imageView2);
             CapturePhotoUtils.insertImage(this.contentResolver, imageBitmap, "title", "uberIMG")
-            val text = "Image saved!"
+            val text = "Image saved on files !"
             val duration = Toast.LENGTH_SHORT
 
             val toast = Toast.makeText(applicationContext, text, duration)

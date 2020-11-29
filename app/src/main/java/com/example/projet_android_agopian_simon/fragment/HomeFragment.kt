@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.projet_android_agopian_simon.R
@@ -16,6 +17,7 @@ class HomeFragment: Fragment() {
             savedInstanceState: Bundle?
             ): View {
         val v = inflater.inflate(R.layout.home_fragment, container, false)
+        val v1 = inflater.inflate(R.layout.rocket_fragment, container, false)
         val txt: TextView = v.findViewById(R.id.home_fragment)
         val preferences =
             this.activity!!.getSharedPreferences("pref", Context.MODE_PRIVATE)
@@ -28,4 +30,8 @@ class HomeFragment: Fragment() {
 
         return v
     }
+
+
+
+
 }
